@@ -32,7 +32,7 @@ Last Facing: North
 R2, R2, R2<br/>
 Total Distance: 2<br/>
 Blocks North: -2<br/>
-Blocks East: 2<br/>
+Blocks East: 0<br/>
 Last Facing: West<br/>
 
 R5, L5, R5, R3<br/>
