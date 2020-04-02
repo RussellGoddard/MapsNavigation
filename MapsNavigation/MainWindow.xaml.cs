@@ -43,24 +43,44 @@ namespace MapsNavigation
                 OnPropertyChanged("TotalDistance");
             }
         }
-        private string blocksNorth;
-        public String BlocksNorth 
+        private string labelNorthSouth;
+        public string LabelNorthSouth
         {
-            get { return blocksNorth; } 
-            set 
-            {
-                blocksNorth = value;
-                OnPropertyChanged("BlocksNorth");
-            } 
-        }
-        private string blocksEast;
-        public String BlocksEast
-        {
-            get { return blocksEast; }
+            get { return labelNorthSouth; }
             set
             {
-                blocksEast = value;
-                OnPropertyChanged("BlocksEast");
+                labelNorthSouth = value;
+                OnPropertyChanged("labelNorthSouth");
+            }
+        }
+        private string labelEastWest;
+        public string LabelEastWest
+        {
+            get { return labelEastWest; }
+            set
+            {
+                labelEastWest = value;
+                OnPropertyChanged("labelEastWest");
+            }
+        }
+        private string blocksNorthSouth;
+        public String BlocksNorthSouth 
+        {
+            get { return blocksNorthSouth; } 
+            set 
+            {
+                blocksNorthSouth = value;
+                OnPropertyChanged("BlocksNorthSouth");
+            } 
+        }
+        private string blocksEastWest;
+        public String BlocksEastWest
+        {
+            get { return blocksEastWest; }
+            set
+            {
+                blocksEastWest = value;
+                OnPropertyChanged("BlocksEastWest");
             }
         }
         private string lastFacing;
@@ -86,17 +106,12 @@ namespace MapsNavigation
 
         private void OnStartUp(object sender, RoutedEventArgs e)
         {
-            //trigger placeholder text
+            //trigger placeholder text and initialize variables
             txt_MN_Input.RaiseEvent(new RoutedEventArgs(LostFocusEvent, txt_MN_Input));
+            btn_MN_ResetForm.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
             //Set data contexts
             this.DataContext = this;
-
-            //initialize output variables
-            TotalDistance = "0";
-            BlocksNorth = "0";
-            BlocksEast = "0";
-            LastFacing = "North";
         }
 
         private void txt_MN_Input_LostFocus(object sender, RoutedEventArgs e)
@@ -132,14 +147,29 @@ namespace MapsNavigation
             Coordinates newCoordinates = CalculateDistance.TraverseDirections(newList);
 
             TotalDistance = newCoordinates.TotalDistance().ToString();
+            LastFacing = newCoordinates.facing;
 
             if (newCoordinates.north < 0)
             {
-                BlocksNorth = Math.Abs(newCoordinates.north).ToString();
+                BlocksNorthSouth = Math.Abs(newCoordinates.north).ToString();
+                LabelNorthSouth = MessageText.blocksSouth;
             }
-            BlocksNorth = newCoordinates.north.ToString();
-            BlocksEast = newCoordinates.east.ToString();
-            LastFacing = newCoordinates.facing;
+            else
+            {
+                BlocksNorthSouth = newCoordinates.north.ToString();
+                LabelNorthSouth = MessageText.blocksNorth;
+            }
+
+            if (newCoordinates.east < 0)
+            {
+                BlocksEastWest = Math.Abs(newCoordinates.east).ToString();
+                LabelEastWest = MessageText.blocksWest;
+            }
+            else
+            {
+                BlocksEastWest = newCoordinates.east.ToString();
+                LabelEastWest = MessageText.blocksEast;
+            }
         }
 
         private void btn_MN_Close_Click(object sender, RoutedEventArgs e)
@@ -150,11 +180,22 @@ namespace MapsNavigation
         private void btn_MN_ResetForm_Click(object sender, RoutedEventArgs e)
         {
             txt_MN_Input.Text = String.Empty;
+            tb_MN_ErrorMessage.Text = String.Empty;
             TotalDistance = "0";
-            BlocksNorth = "0";
-            BlocksEast = "0";
+            BlocksNorthSouth = "0";
+            BlocksEastWest = "0";
             LastFacing = "North";
+            LabelNorthSouth = MessageText.blocksNorth;
+            LabelEastWest = MessageText.blocksEast;
             txt_MN_Input.RaiseEvent(new RoutedEventArgs(LostFocusEvent, txt_MN_Input));
+        }
+
+        private void txt_MN_Input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btn_MN_CalculateDistance.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
         }
     }
 }

@@ -31,7 +31,7 @@ Last Facing: North
 
 R2, R2, R2<br/>
 Total Distance: 2<br/>
-Blocks North: -2<br/>
+Blocks South: 2<br/>
 Blocks East: 0<br/>
 Last Facing: West<br/>
 
@@ -44,17 +44,17 @@ Last Facing: South<br/>
 L3, R2, L5, R1, L1, L2<br/>
 Total Distance: 10<br/>
 Blocks North: 1<br/>
-Blocks East: -9<br/>
+Blocks West: 9<br/>
 Last Facing: South
 
 E0, R10, S3, R5, W3, W-2, L2, L1<br/>
 Total Distance: 20<br/>
-Blocks North: -15<br/>
-Blocks East: -5<br/>
+Blocks South: 15<br/>
+Blocks West: 5<br/>
 Last Facing: East
 
 L3, R2, L5, R1, L1, L2, L2, R1, R5, R1, L1, L2, R2, R4, L4, L3, L3, R5, L1, R3, L5, L2, R4, L5, R4, R2, L2, L1, R1, L3, L3, R2, R1, L4, L1, L1, R4, R5, R1, L2, L1, R188, R4, L3, R54, L4, R4, R74, R2, L4, R185, R1, R3, R5, L2, L3, R1, L1, L3, R3, R2, L3, L4, R1, L3, L5, L2, R2, L1, R2, R1, L4, R5, R4, L5, L5, L4, R5, R4, L5, L3, R4, R1, L5, L4, L3, R5, L5, L2, L4, R4, R4, R2, L1, L3, L2, R5, R4, L5, R1, R2, R5, L2, R4, R5, L2, L3, R3, L4, R3, L2, R1, R4, L5, R1, L5, L3, R4, L2, L2, L5, L5, R5, R2, L5, R1, L3, L2, L2, R3, L3, L4, R2, R3, L1, R2, L5, L3, R4, L4, R4, R3, L3, R1, L3, R5, L5, R1, R5, R3, L1<br/>
 Total Distance: 209<br/>
 Blocks North: 78<br/>
-Blocks East: -131<br/>
+Blocks West: 131<br/>
 Last Facing: West

@@ -22,10 +22,16 @@ namespace MapsNavigation
 
     public static class CalculateDistance
     {
+        /// <summary>
+        /// Validates user input for directions
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="outputList"></param>
+        /// <returns>Bool indicating pass/fail and an output List<String> of the split input</returns>
         public static bool ValidateDirectionsInput(string input, out List<String> outputList)
         {
             outputList = null;
-            List<String> splitString = input.Split(',').Select(input => input.Trim()).ToList();
+            List<String> splitString = input.Split(',').Select(input => input.ToUpper().Trim()).ToList();
 
             foreach (string x in splitString)
             {
@@ -41,6 +47,11 @@ namespace MapsNavigation
             return true;
         }
 
+        /// <summary>
+        /// Traverses directions passed in, validation must be done prior to this method
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Coordinates struct with how many blocks north and east the directions traveled as well as final facing</returns>
         public static Coordinates TraverseDirections(List<String> input)
         {
             //input already validated

@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapsNavigation"
         mc:Ignorable="d"
-        Title="Maps Navigation" Height="346" Width="489">
+        Title="Maps Navigation" ResizeMode="NoResize" Height="360" Width="460">
     <Grid Loaded="OnStartUp" Margin="0,0,0,-16">
-        <TextBox x:Name="txt_MN_Input" HorizontalAlignment="Left" Margin="48,34,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="168" LostFocus="txt_MN_Input_LostFocus" GotFocus="txt_MN_Input_GotFocus"/>
-        <Label x:Name="lbl_MN_Input" Content="Input:" HorizontalAlignment="Left" Margin="4,33,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_MN_TotalDistance" Content="Total Distance:" HorizontalAlignment="Left" Margin="48,230,0,0" VerticalAlignment="Top" Width="90"/>
-        <Label x:Name="lbl_MN_BlocksNorth" Content="Blocks North:" HorizontalAlignment="Left" Margin="246,230,0,0" VerticalAlignment="Top" Width="90"/>
-        <Label x:Name="lbl_MN_BlocksEast" Content="Blocks East:" HorizontalAlignment="Left" Margin="246,256,0,0" VerticalAlignment="Top" Width="90"/>
-        <Label x:Name="lbl_MN_TotalDistanceOutput" HorizontalAlignment="Left" Margin="142,230,0,0" VerticalAlignment="Top" Content="{Binding TotalDistance, Mode=OneWay}"/>
-        <Label x:Name="lbl_MN_BlocksNorthOutput" HorizontalAlignment="Left" Margin="342,230,0,0" VerticalAlignment="Top" Content="{Binding BlocksNorth, Mode=OneWay}"/>
-        <Label x:Name="lbl_MN_BlocksEastOutput" HorizontalAlignment="Left" Margin="342,256,0,0" VerticalAlignment="Top" Content="{Binding BlocksEast, Mode=OneWay}"/>
-        <Button x:Name="btn_MN_CalculateDistance" Content="Find Distance" HorizontalAlignment="Left" Margin="48,206,0,0" VerticalAlignment="Top" Click="btn_MN_CalculateDistance_Click"/>
-        <TextBlock x:Name="tb_MN_ErrorMessage" HorizontalAlignment="Left" Margin="48,14,0,0" Text="{Binding ErrorMessage, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
-        <Label x:Name="lbl_MN_FinalFacing" Content="Last Facing:" HorizontalAlignment="Left" Margin="48,256,0,0" VerticalAlignment="Top" Width="90"/>
-        <Label x:Name="lbl_MN_FinalFacingOutput" HorizontalAlignment="Left" Margin="142,256,0,0" VerticalAlignment="Top" Content="{Binding LastFacing, Mode=OneWay}"/>
-        <Button x:Name="btn_MN_ResetForm" Content="Reset" HorizontalAlignment="Left" Margin="408,207,0,0" VerticalAlignment="Top" Click="btn_MN_ResetForm_Click"/>
-        <Button x:Name="btn_MN_Close" Content="Close" HorizontalAlignment="Left" Margin="408,284,0,0" VerticalAlignment="Top" Click="btn_MN_Close_Click"/>
+        <TextBox x:Name="txt_MN_Input" HorizontalAlignment="Left" Margin="25,30,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="168" LostFocus="txt_MN_Input_LostFocus" GotFocus="txt_MN_Input_GotFocus" KeyDown="txt_MN_Input_KeyDown"/>
+        <Label x:Name="lbl_MN_Input" Content="Input:" HorizontalAlignment="Left" Margin="22,6,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_MN_TotalDistance" Content="Total Distance:" HorizontalAlignment="Left" Margin="22,244,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="lbl_MN_BlocksNorth" HorizontalAlignment="Left" Margin="220,244,0,0" VerticalAlignment="Top" Width="90" Content="{Binding LabelNorthSouth, Mode=OneWay}"/>
+        <Label x:Name="lbl_MN_BlocksEast" HorizontalAlignment="Left" Margin="220,270,0,0" VerticalAlignment="Top" Width="90" Content="{Binding LabelEastWest, Mode=OneWay}"/>
+        <Label x:Name="lbl_MN_TotalDistanceOutput" HorizontalAlignment="Left" Margin="116,244,0,0" VerticalAlignment="Top" Content="{Binding TotalDistance, Mode=OneWay}"/>
+        <Label x:Name="lbl_MN_BlocksNorthOutput" HorizontalAlignment="Left" Margin="316,244,0,0" VerticalAlignment="Top" Content="{Binding BlocksNorthSouth, Mode=OneWay}"/>
+        <Label x:Name="lbl_MN_BlocksEastOutput" HorizontalAlignment="Left" Margin="316,270,0,0" VerticalAlignment="Top" Content="{Binding BlocksEastWest, Mode=OneWay}"/>
+        <Button x:Name="btn_MN_CalculateDistance" Content="Find Distance" HorizontalAlignment="Left" Margin="25,202,0,0" VerticalAlignment="Top" Click="btn_MN_CalculateDistance_Click"/>
+        <TextBlock x:Name="tb_MN_ErrorMessage" HorizontalAlignment="Left" Margin="25,226,0,0" Text="{Binding ErrorMessage, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Foreground="Red"/>
+        <Label x:Name="lbl_MN_FinalFacing" Content="Last Facing:" HorizontalAlignment="Left" Margin="22,270,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="lbl_MN_FinalFacingOutput" HorizontalAlignment="Left" Margin="116,270,0,0" VerticalAlignment="Top" Content="{Binding LastFacing, Mode=OneWay}"/>
+        <Button x:Name="btn_MN_ResetForm" Content="Reset" HorizontalAlignment="Left" Margin="385,202,0,0" VerticalAlignment="Top" Click="btn_MN_ResetForm_Click"/>
+        <Button x:Name="btn_MN_Close" Content="Close" HorizontalAlignment="Left" Margin="385,290,0,0" VerticalAlignment="Top" Click="btn_MN_Close_Click"/>
 
     </Grid>
 </Window>
