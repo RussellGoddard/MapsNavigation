@@ -141,5 +141,20 @@ namespace MapsNavigation
             BlocksEast = newCoordinates.east.ToString();
             LastFacing = newCoordinates.facing;
         }
+
+        private void btn_MN_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_MN_ResetForm_Click(object sender, RoutedEventArgs e)
+        {
+            txt_MN_Input.Text = String.Empty;
+            TotalDistance = "0";
+            BlocksNorth = "0";
+            BlocksEast = "0";
+            LastFacing = "North";
+            txt_MN_Input.RaiseEvent(new RoutedEventArgs(LostFocusEvent, txt_MN_Input));
+        }
     }
 }
